@@ -30,8 +30,8 @@ router.post('/login', async (req, res) => {
       in: 'body',
       required: false,
       schema: {
-        email: "rni@sains.com.my",
-        password: "g0g0Powerr@nger"
+        email: "dwightschrute@sains.com.my",
+        password: "dwightschrute"
       }
     }
     #swagger.responses['200'] = { description: "API call is successful" }
