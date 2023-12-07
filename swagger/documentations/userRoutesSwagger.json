@@ -1,0 +1,133 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "127.0.0.1",
+  "basePath": "/user",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/change-password": {
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "description": "Change Account Password",
+        "parameters": [
+          {
+            "name": "password",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "dwightschrute@sains.com.my"
+                },
+                "oldPassword": {
+                  "type": "string",
+                  "example": "coolwaterbottle"
+                },
+                "newPassword": {
+                  "type": "string",
+                  "example": "waterbottleisnecessary"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/generate-token": {
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "description": "Generate Token",
+        "parameters": [
+          {
+            "name": "email",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "dwightschrute@sains.com.my"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    },
+    "/reset-password": {
+      "put": {
+        "tags": [
+          "user"
+        ],
+        "description": "Reset Password With Token",
+        "parameters": [
+          {
+            "name": "token",
+            "in": "query",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "token": {
+                  "type": "string",
+                  "example": "911202315410-hfSWQG"
+                }
+              }
+            }
+          },
+          {
+            "name": "password",
+            "in": "body",
+            "required": false,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "newPassword": {
+                  "type": "string",
+                  "example": "newpasswordforDwight"
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

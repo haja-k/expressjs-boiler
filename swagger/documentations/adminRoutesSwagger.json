@@ -1,0 +1,51 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "REST API",
+    "description": ""
+  },
+  "host": "127.0.0.1",
+  "basePath": "/admin",
+  "schemes": [
+    "http"
+  ],
+  "paths": {
+    "/register-user": {
+      "post": {
+        "tags": [
+          "admin"
+        ],
+        "description": "User Creation",
+        "parameters": [
+          {
+            "name": "profile",
+            "in": "body",
+            "required": true,
+            "schema": {
+              "type": "object",
+              "properties": {
+                "email": {
+                  "type": "string",
+                  "example": "rni@sains.com.my"
+                },
+                "fullName": {
+                  "type": "string",
+                  "example": "Research & Innovation "
+                }
+              }
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          },
+          "500": {
+            "description": "Internal Server Error"
+          }
+        }
+      }
+    }
+  }
+}

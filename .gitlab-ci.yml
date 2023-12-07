@@ -1,0 +1,36 @@
+image: node:latest 
+stages:          
+  - build
+  - test
+  - deploy
+
+build-job:      
+  stage: build
+  environment: production
+  before_script:
+    - chmod +x ./cicd/build_bleed.sh 
+  script:
+    - ./cicd/build_bleed.sh
+
+# unit-test-job:  
+#   stage: test    
+#   environment: testing
+#   before_script:
+#     - chmod +x ./cicd/test_src.sh   
+#   script:
+#     - ./cicd/test_src.sh
+
+lint-test-job:  
+  stage: test   
+  environment: testing
+  before_script:
+    - chmod +x ./cicd/lint_src.sh   
+  script:
+    - ./cicd/lint_src.sh
+
+deploy-job:      
+  stage: deploy  
+  environment: production
+  script:
+    - echo "Deploying application..."
+    - echo "Application successfully deployed."
